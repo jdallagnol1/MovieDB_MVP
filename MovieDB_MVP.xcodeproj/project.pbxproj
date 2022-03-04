@@ -56,15 +56,47 @@
 		DA06383527D29AE600264E61 /* MovieDB_MVP */ = {
 			isa = PBXGroup;
 			children = (
+				DA06384F27D29B4A00264E61 /* DataSource */,
+				DA06384E27D29B4300264E61 /* Models */,
+				DA06384C27D29B2000264E61 /* Views */,
+				DA06384D27D29B2900264E61 /* Presenter */,
 				DA06383627D29AE600264E61 /* AppDelegate.swift */,
 				DA06383827D29AE600264E61 /* SceneDelegate.swift */,
-				DA06383A27D29AE600264E61 /* ViewController.swift */,
 				DA06383C27D29AE600264E61 /* Main.storyboard */,
 				DA06383F27D29AE700264E61 /* Assets.xcassets */,
 				DA06384127D29AE700264E61 /* LaunchScreen.storyboard */,
 				DA06384427D29AE700264E61 /* Info.plist */,
 			);
 			path = MovieDB_MVP;
+			sourceTree = "<group>";
+		};
+		DA06384C27D29B2000264E61 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DA06383A27D29AE600264E61 /* ViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DA06384D27D29B2900264E61 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		DA06384E27D29B4300264E61 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DA06384F27D29B4A00264E61 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
