@@ -12,6 +12,6 @@ struct MovieInfo: Hashable {
     
     let title: String
     let overview: String
-    let voteAverage: Float
+    let voteAverage: Double
     let posterPath: String
 }

@@ -47,7 +47,7 @@ struct MovieService {
                 guard let id = recivedMovie["id"] as? Int,
                       let title = recivedMovie["original_title"] as? String,
                       let overview = recivedMovie["overview"] as? String,
-                      let voteAverage = recivedMovie["vote_average"] as? Float,
+                      let voteAverage = recivedMovie["vote_average"] as? Double,
                       let posterPath = recivedMovie["poster_path"] as? String
                 else { continue }
                 let movie = MovieInfo(id: id, title: title, overview: overview, voteAverage: voteAverage, posterPath: posterPath)
@@ -83,7 +83,7 @@ struct MovieService {
                 guard let id = recivedMovie["id"] as? Int,
                       let title = recivedMovie["original_title"] as? String,
                       let overview = recivedMovie["overview"] as? String,
-                      let voteAverage = recivedMovie["vote_average"] as? Float,
+                      let voteAverage = recivedMovie["vote_average"] as? Double,
                       let posterPath = recivedMovie["poster_path"] as? String
                 else { continue }
                 let movie = MovieInfo(id: id, title: title, overview: overview, voteAverage: voteAverage, posterPath: posterPath)
