@@ -43,9 +43,25 @@ class MovieListPresenter {
         }
     }
     
-//    func loadData(tableView: UITableView) {
-//        requestPopularMovies()
-//        requestNowPlayingMovie()
+//    func getPoster(posterPath: String) -> UIImageView {
+//        let url = URL(string:"https://image.tmdb.org/t/p/w500/\(posterPath)")!
+//        let poster = UIImageView()
+//        poster.load(url: url)
+//        return poster
 //    }
-    
+
+}
+
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
+    }
 }

@@ -88,7 +88,7 @@ struct MovieService {
                 else { continue }
                 let movie = MovieInfo(id: id, title: title, overview: overview, voteAverage: voteAverage, posterPath: posterPath)
                 localMoviesList.append(movie)
-                if localMoviesList.count > 2 {
+                if localMoviesList.count > 1 {
                     break
                 }
             }

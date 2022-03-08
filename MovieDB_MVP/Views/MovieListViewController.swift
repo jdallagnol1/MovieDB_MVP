@@ -47,13 +47,15 @@ extension MovieListViewController {
             cell.movieTileLabel.text = movie.title
             cell.movieDescriptionLabel.text = movie.overview
             cell.movieRatingLabel.text = String(movie.voteAverage)
-            // to-do image
+            let url = URL(string:"https://image.tmdb.org/t/p/w500/\(movie.posterPath)")
+            cell.moviePoster.load(url: url!)
         } else { // now playing
             let movie = presenter.nowPlayingMovies[indexPath.row]
             cell.movieTileLabel.text = movie.title
             cell.movieDescriptionLabel.text = movie.overview
             cell.movieRatingLabel.text = String(movie.voteAverage)
-            // to-do image
+            let url = URL(string:"https://image.tmdb.org/t/p/w500/\(movie.posterPath)")
+            cell.moviePoster.load(url: url!)
         }
         
         return cell
