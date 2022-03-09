@@ -68,4 +68,22 @@ extension MovieListViewController {
             return "Now Playing"
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 { //popular movies
+            performSegue(withIdentifier: "goToMovieDetails", sender: presenter.popularMovies[indexPath.row])
+        } else {
+            performSegue(withIdentifier: "goToMovieDetails", sender: presenter.nowPlayingMovies[indexPath.row])
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let movieToShow = sender as! MovieInfo
+        let detailView = segue.destination as! MovieDetailsViewController
+        let detailPresenter = MovieDetailsPresenter(receivedMovie: movieToShow) //passar a instancia de movie
+        
+        detailView.movieDetailsPresenter = detailPresenter
+        
+    }
+    
 }
