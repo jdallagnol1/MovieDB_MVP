@@ -8,33 +8,46 @@
 import Foundation
 import UIKit
 
-class MovieDetailsViewController: UIViewController {
-        
+class MovieDetailsViewController: UIViewController, MovieDetailsViewDelegate {
+    
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var movieRatingLabel: UILabel!
     @IBOutlet weak var movieGenresLabel: UILabel!
     @IBOutlet weak var movieOverviewLabel: UILabel!
     @IBOutlet weak var moviePoster: UIImageView!
+    @IBOutlet weak var genresActivityIndicator: UIActivityIndicatorView!
     
     var movieDetailsPresenter: MovieDetailsPresenter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        movieDetailsPresenter?.delegate = self
         config()
-        print(" titulo do filme:  \(movieDetailsPresenter?.movie.title)")
+        uptadeView()
+    }
+    
+    func uptadeView() {
+        DispatchQueue.main.async {
+            guard let movieDetailsPresenter = self.movieDetailsPresenter else {
+                return
+            }
+            if movieDetailsPresenter.shouldKeepLoading() {
+                self.genresActivityIndicator.stopAnimating()
+            } else {
+                self.genresActivityIndicator.startAnimating()
+            }
+        }
     }
     
     func config() {
         self.movieTitleLabel.text = movieDetailsPresenter?.movie.title
-        self.movieRatingLabel.text = String("\(movieDetailsPresenter?.movie.voteAverage)")
+        let ratingValue = movieDetailsPresenter?.movie.voteAverage ?? 0.0
+        self.movieRatingLabel.text = String("\(ratingValue)")
         self.movieOverviewLabel.text = movieDetailsPresenter?.movie.overview
-        
-        
+        self.movieGenresLabel.text = movieDetailsPresenter?.movieGenres
         let posterPath = movieDetailsPresenter?.movie.posterPath ?? ""
         let url = URL(string:"https://image.tmdb.org/t/p/w500/" + posterPath)
         self.moviePoster.load(url: url!)
-        
-        //to do image e genres
     }
     
 }

@@ -41,7 +41,6 @@ extension MovieListViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = movieListTableView.dequeueReusableCell(withIdentifier: "movieCell") as! MovieListTableViewCell
-        
         if indexPath.section == 0 { // popular movies
             let movie = presenter.popularMovies[indexPath.row]
             cell.movieTileLabel.text = movie.title
@@ -57,7 +56,6 @@ extension MovieListViewController {
             let url = URL(string:"https://image.tmdb.org/t/p/w500/\(movie.posterPath)")
             cell.moviePoster.load(url: url!)
         }
-        
         return cell
     }
     
@@ -80,10 +78,8 @@ extension MovieListViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let movieToShow = sender as! MovieInfo
         let detailView = segue.destination as! MovieDetailsViewController
-        let detailPresenter = MovieDetailsPresenter(receivedMovie: movieToShow) //passar a instancia de movie
-        
+        let detailPresenter = MovieDetailsPresenter(receivedMovie: movieToShow)
         detailView.movieDetailsPresenter = detailPresenter
-        
     }
     
 }

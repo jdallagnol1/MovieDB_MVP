@@ -9,7 +9,6 @@ import Foundation
 
 struct MovieInfo: Hashable {
     let id: Int
-    
     let title: String
     let overview: String
     let voteAverage: Double

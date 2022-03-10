@@ -22,7 +22,6 @@ class MovieListPresenter {
     
     init(movieService: MovieService) {
         self.movieService = movieService
-        
         requestPopularMovies()
         requestNowPlayingMovie()
     }
@@ -42,13 +41,6 @@ class MovieListPresenter {
             self.nowPlayingMovies = nowPlayingMoviesList
         }
     }
-    
-//    func getPoster(posterPath: String) -> UIImageView {
-//        let url = URL(string:"https://image.tmdb.org/t/p/w500/\(posterPath)")!
-//        let poster = UIImageView()
-//        poster.load(url: url)
-//        return poster
-//    }
 
 }
 

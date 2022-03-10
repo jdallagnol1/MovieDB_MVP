@@ -22,7 +22,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3i4-Hd-O4h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-654" y="114"/>
+            <point key="canvasLocation" x="-684" y="100"/>
         </scene>
         <!--Movies-->
         <scene sceneID="yRj-GV-cgp">
@@ -116,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wug-dz-RzD" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="83" y="90"/>
+            <point key="canvasLocation" x="161" y="100"/>
         </scene>
         <!--MovieDetails-->
         <scene sceneID="Sf9-Yi-oFK">
@@ -145,7 +145,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7i-5c-rTa">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7i-5c-rTa">
                                                 <rect key="frame" x="0.0" y="31" width="223" height="72"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
@@ -191,10 +191,14 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="mc2-oo-Eyu">
+                                <rect key="frame" x="163" y="220" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ade-aM-Vbb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="mc2-oo-Eyu" firstAttribute="leading" secondItem="L7i-5c-rTa" secondAttribute="leading" id="9jm-R0-vJa"/>
                             <constraint firstItem="LVN-WI-pdr" firstAttribute="leading" secondItem="Ade-aM-Vbb" secondAttribute="leading" constant="21" id="DTM-EI-dwe"/>
                             <constraint firstItem="12N-EJ-Lfn" firstAttribute="leading" secondItem="Ade-aM-Vbb" secondAttribute="leading" constant="21" id="FF3-0l-W50"/>
                             <constraint firstItem="Ade-aM-Vbb" firstAttribute="trailing" secondItem="V2f-Qh-7Hv" secondAttribute="trailing" constant="28" id="Lxg-R3-NYO"/>
@@ -202,12 +206,14 @@
                             <constraint firstItem="Ade-aM-Vbb" firstAttribute="trailing" secondItem="12N-EJ-Lfn" secondAttribute="trailing" constant="21" id="Xvd-ia-PDp"/>
                             <constraint firstItem="LVN-WI-pdr" firstAttribute="top" secondItem="Ade-aM-Vbb" secondAttribute="top" constant="18" id="jZ3-2j-qCs"/>
                             <constraint firstItem="12N-EJ-Lfn" firstAttribute="top" secondItem="V2f-Qh-7Hv" secondAttribute="bottom" constant="31" id="kPf-uG-xqE"/>
+                            <constraint firstItem="mc2-oo-Eyu" firstAttribute="centerY" secondItem="L7i-5c-rTa" secondAttribute="centerY" id="qV5-po-jqZ"/>
                             <constraint firstItem="V2f-Qh-7Hv" firstAttribute="top" secondItem="Ade-aM-Vbb" secondAttribute="top" constant="75" id="uvo-KW-ots"/>
                             <constraint firstItem="12N-EJ-Lfn" firstAttribute="top" secondItem="LVN-WI-pdr" secondAttribute="bottom" constant="18" id="y2I-0H-bAF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="qas-qt-7FN"/>
                     <connections>
+                        <outlet property="genresActivityIndicator" destination="mc2-oo-Eyu" id="d0E-6r-SOR"/>
                         <outlet property="movieGenresLabel" destination="L7i-5c-rTa" id="8D8-Ig-cuA"/>
                         <outlet property="movieOverviewLabel" destination="Dyu-DL-yR4" id="Jmv-16-Nmv"/>
                         <outlet property="moviePoster" destination="LVN-WI-pdr" id="Tj0-js-720"/>
@@ -217,7 +223,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UvT-kr-Tpy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="926" y="100"/>
+            <point key="canvasLocation" x="978" y="100"/>
         </scene>
     </scenes>
     <resources>

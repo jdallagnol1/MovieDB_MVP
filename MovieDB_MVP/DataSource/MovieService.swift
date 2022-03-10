@@ -18,10 +18,7 @@ class LocalMoviesLists {
 }
 
 struct MovieService {
-    
     private let apiKey = "bf35d76c9fdeedd3180a8323a950dade"
-    
-    
     func nowPlayingRequest(page: Int = 1, completionHandler: @escaping ([MovieInfo]) -> Void) {
         if page < 0 {fatalError("Page should not be lower than 1")}
         guard let url = URL(string: ("https://api.themoviedb.org/3/movie/now_playing?api_key=bf35d76c9fdeedd3180a8323a950dade&language=en-US&page=") + "\(page)") else {
@@ -42,7 +39,6 @@ struct MovieService {
             }
             
             var localMoviesList: [MovieInfo] = []
-            
             for recivedMovie in movies {
                 guard let id = recivedMovie["id"] as? Int,
                       let title = recivedMovie["original_title"] as? String,
@@ -67,7 +63,6 @@ struct MovieService {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             
             typealias MovieData = [String: Any]
-            
             guard let data = data,
                   let json = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed),
                   let dictionary = json as? [String: Any],
@@ -78,7 +73,6 @@ struct MovieService {
             }
             
             var localMoviesList: [MovieInfo] = []
-            
             for recivedMovie in movies {
                 guard let id = recivedMovie["id"] as? Int,
                       let title = recivedMovie["original_title"] as? String,
@@ -97,8 +91,8 @@ struct MovieService {
         .resume()
     }
     
-    func movieGenresRequest(movieId: Int, completionHandler: @escaping ([String]) -> Void){
-        let urlString = "https://api.themoviedb.org/3/movie/520763?api_key=bf35d76c9fdeedd3180a8323a950dade&language=en-US"
+    func movieGenresRequest(movieId: Int, completionHandler: @escaping ([String]) -> Void ) {
+        let urlString = "https://api.themoviedb.org/3/movie/\(movieId)?api_key=bf35d76c9fdeedd3180a8323a950dade&language=en-US"
         guard let url = URL(string: urlString) else {
             fatalError("URL not found")
         }
@@ -106,7 +100,6 @@ struct MovieService {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             
             typealias GenreData = [String: Any]
-            
             guard let data = data,
                   let json = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed),
                   let dictionary = json as? [String: Any],
@@ -116,9 +109,7 @@ struct MovieService {
                 return
             }
             
-            
             var genresList: [String] = []
-            
             for genre in genres{
                 guard let name = genre["name"] as? String
                 else {continue}

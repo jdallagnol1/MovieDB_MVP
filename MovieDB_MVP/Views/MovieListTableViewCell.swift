@@ -15,6 +15,4 @@ class MovieListTableViewCell: UITableViewCell {
     @IBOutlet weak var movieDescriptionLabel: UILabel!
     @IBOutlet weak var movieRatingLabel: UILabel!
     
-    
-    
 }
