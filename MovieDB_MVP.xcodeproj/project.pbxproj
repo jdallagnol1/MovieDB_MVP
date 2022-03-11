@@ -57,12 +57,12 @@
 			path = DataSource;
 			sourceTree = "<group>";
 		};
-		C02E212B27D684B9004DCA35 /* Module */ = {
+		C02E212B27D684B9004DCA35 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				C02E212C27D684CC004DCA35 /* MovieInfo.swift */,
 			);
-			path = Module;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C02E212E27D68BE7004DCA35 /* Presenter */ = {
@@ -94,7 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				C02E212E27D68BE7004DCA35 /* Presenter */,
-				C02E212B27D684B9004DCA35 /* Module */,
+				C02E212B27D684B9004DCA35 /* Model */,
 				C02E212827D68458004DCA35 /* DataSource */,
 				DA06384C27D29B2000264E61 /* Views */,
 				DA06383627D29AE600264E61 /* AppDelegate.swift */,
